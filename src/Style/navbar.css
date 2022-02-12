@@ -1,0 +1,7 @@
+.nav-item li{
+    color: black;
+}
+.nav-item a:hover{
+    text-decoration: none;
+    color: blue;
+}

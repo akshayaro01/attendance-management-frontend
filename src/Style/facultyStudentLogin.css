@@ -1,0 +1,21 @@
+
+
+#trail {
+    background: url('/glbim.png')
+    center/cover no-repeat fixed ;
+    height: 100vh;
+    
+}
+.clickHere{
+    color: blue;
+    }
+.clickHere:hover{
+        text-decoration: underline;
+        cursor: pointer;
+        }
+
+.mainText{
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 30px;
+}
