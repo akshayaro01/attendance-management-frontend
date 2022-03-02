@@ -23,7 +23,7 @@ const Home = () => {
                 <div className="container">
                     <div className="row mt-5">
                         <div className="col-md-6 m-auto">
-                            <table className="table border">
+                             <table className="table border table-striped" style={{background:'lightgoldenrodyellow'}}>
                                 <thead>
                                     <tr>
                                         <th scope="col">S.No</th>

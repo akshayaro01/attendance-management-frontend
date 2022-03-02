@@ -81,7 +81,7 @@ const AdminGetAllFaculty = () => {
                         </div>
                         <div className="col-md-8">
 
-                            {store.admin.allStudent.length !== 0 && <table className="table border">
+                            {store.admin.allStudent.length !== 0 &&  <table className="table border table-striped" style={{background:'lightgoldenrodyellow'}}>
                                 <thead>
                                     <tr>
                                         <th scope="col">S.No</th>

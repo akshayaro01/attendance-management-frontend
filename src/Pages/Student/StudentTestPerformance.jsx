@@ -28,7 +28,7 @@ const StudentTestPerformance = () => {
                             <div className="col-md-8 m-auto">
                                 {store.student.allMarks.CycleTest1.length !== 0 ? <>
                                     <h4>Sessional 1</h4>
-                                    <table className="table border">
+                                     <table className="table border table-striped" style={{background:'lightgoldenrodyellow'}}>
                                         <thead>
                                             <tr>
                                                 <th scope="col">S.No</th>

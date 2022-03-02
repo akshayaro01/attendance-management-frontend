@@ -25,7 +25,7 @@ const Home = () => {
             {/* <Header /> */}
             <div className="row">
                 <div className="col">
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <nav className="navbar navbar-expand-lg navbar-light bg-warning">
                     <img className="navbar-brand mt-1" alt='G.L.B.I.M' src='/glLogo.png' height={100} width={100}></img>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
@@ -41,9 +41,9 @@ const Home = () => {
                                 <li className="nav-item">
                                     <button type="button" className="btn"><Link to="/attendenceFaculty"><li>MARK ATTENDANCE</li></Link></button>
                                 </li>
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <button type="button" className="btn"><Link to="/faculty/uploadMarks"><li>UPLOAD MARKS</li></Link></button>
-                                </li>
+                                </li> */}
                                 <li className="nav-item">
                                     <button type="button" className="btn"><Link to="/faculty/updatePassword"><li>UPDATE PASSWORD</li></Link></button>
                                 </li>

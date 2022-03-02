@@ -22,7 +22,7 @@ const Home = () => {
     return (
         <div className="container-fluid">
           
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-warning">
             <img className="navbar-brand mt-1" alt='G.L.B.I.M' src='/glLogo.png' height={100} width={100}></img>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

@@ -29,7 +29,7 @@ const AdminHome = () => {
                                     </div>
                                 </div>
                                 <div className="col-md-7">
-                                    <table className="table border">
+                                     <table className="table border table-striped" style={{background:'lightgoldenrodyellow'}}>
                                         <tbody>
                                             <tr>
                                                 <td>Name</td>
