@@ -5,6 +5,7 @@ import {fetchAttendence} from '../redux/action/studentAction'
 import axios from 'axios'
 import HomeHelper from '../Components/HomeHelper'
 import { useHistory } from 'react-router-dom'
+import AnimationHOC from './AnimationHOC'
 
 const Home = () => {
     const store = useSelector(store => store)
@@ -23,6 +24,7 @@ const Home = () => {
                 <div className="container">
                     <div className="row mt-5">
                         <div className="col-md-6 m-auto">
+                            <AnimationHOC>
                              <table className="table border table-striped" style={{background:'lightgoldenrodyellow'}}>
                                 <thead>
                                     <tr>
@@ -53,6 +55,7 @@ const Home = () => {
                                     }
                                 </tbody>
                             </table>
+                            </AnimationHOC>
                         </div>
                     </div>
                 </div>

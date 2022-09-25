@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 
 
 import FacultyHomeHelper from '../Components/FacultyHomeHelper'
+import AnimationHOC from './AnimationHOC';
 
 
 const FacultyInterface = () => {
@@ -30,6 +31,7 @@ const FacultyInterface = () => {
                                         </div>
                                     </div>
                                 </div>
+                                <AnimationHOC>
                                 <div className="col-md-7">
                                     <table className="table border table-striped" style={{background:'lightgoldenrodyellow'}}>
                                         <tbody>
@@ -77,6 +79,7 @@ const FacultyInterface = () => {
                                     </table>
 
                                 </div>
+                                </AnimationHOC>
                             </div>
                         </div>
                         <div className="col-md-2">

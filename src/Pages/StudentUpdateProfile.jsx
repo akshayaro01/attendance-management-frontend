@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 
-import { studentUpdate, studentLogout,newerChats, previousChats } from '../redux/action/studentAction'
+import { studentUpdate, studentLogout, newerChats, previousChats } from '../redux/action/studentAction'
 import HomeHelper from '../Components/HomeHelper'
 
 import { useHistory, withRouter } from 'react-router-dom'
+import AnimationHOC from './AnimationHOC'
 
 const StudentUpdateProfile = () => {
     const store = useSelector((store) => store)
@@ -33,7 +34,7 @@ const StudentUpdateProfile = () => {
         }
     }, [store.error])
 
-    const formHandler = async(e) => {
+    const formHandler = async (e) => {
         e.preventDefault()
         const formData = new FormData()
         formData.append("gender", gender)
@@ -49,11 +50,12 @@ const StudentUpdateProfile = () => {
         dispatch(studentLogout())
         history.push('/')
     }
-        return (
-            <div>
-                {store.student.isAuthenticated ? <>
-                    <HomeHelper />
-                    <div className="container mt-5">
+    return (
+        <div>
+            {store.student.isAuthenticated ? <>
+                <HomeHelper />
+                <div className="container mt-5">
+                    <AnimationHOC>
                         <div className="row ">
                             <div className="col-md-5 w-100 m-auto">
                                 <form onSubmit={formHandler}>
@@ -90,11 +92,12 @@ const StudentUpdateProfile = () => {
                                 </form>
                             </div>
                         </div>
-                    </div>
-                </> : (history.push('/'))}
-                
-            </div>
-        )
-    }
+                    </AnimationHOC>
+                </div>
+            </> : (history.push('/'))}
+
+        </div>
+    )
+}
 
 export default withRouter(StudentUpdateProfile)

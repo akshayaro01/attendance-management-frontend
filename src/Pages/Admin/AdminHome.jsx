@@ -24,7 +24,7 @@ const AdminHome = () => {
                                         <div className="card-body">
                                             <h5 className="card-title">{store.admin.admin.name}</h5>
                                             <h5 className="card-title">{store.admin.admin.registrationNumber}</h5>
-                                            {/* <Link to='/faculty/updateProfile'>UPDATE PROFILE</Link> */}
+                                            <Link to='/faculty/updateProfile'>UPDATE PROFILE</Link>
                                         </div>
                                     </div>
                                 </div>

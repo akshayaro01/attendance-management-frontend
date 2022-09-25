@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 import classnames from 'classnames'
 import HomeHelper from '../Components/HomeHelper'
 import { studentUpdatePassword } from '../redux/action/studentAction'
+import AnimationHOC from './AnimationHOC'
 
 
 
@@ -31,40 +32,42 @@ const StudentUpdatePassword = () => {
         <div>
             {store.student.isAuthenticated ? <>
                 <HomeHelper />
-                <div className="container m-5">
-                    <div className="row m-5">
-                        <div className="col-md-5 m-auto">
-                            <form noValidate onSubmit={formHandler}>
-                                <div className="form-group">
-                                    <label htmlFor="emailId">Old Password</label>
-                                    <input onChange={(e) => setOldPassword(e.target.value)} type="password" value={oldPassword} className={classnames("form-control",
-                                        {
-                                            'is-invalid': error.oldPassword
+                <div className="container-fluid">
+                    <AnimationHOC>
+                        <div className="row justify-content-center mt-4">
+                            <div className="col-md-3 m-auto">
+                                <form noValidate onSubmit={formHandler}>
+                                    <div className="form-group">
+                                        <label htmlFor="emailId">Old Password</label>
+                                        <input onChange={(e) => setOldPassword(e.target.value)} type="password" value={oldPassword} className={classnames("form-control",
+                                            {
+                                                'is-invalid': error.oldPassword
 
-                                        })} id="emailId" />
-                                    {error.oldPassword && (<div className="invalid-feedback">{error.oldPassword}</div>)}
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="passwordId">New Password</label>
-                                    <input onChange={(e) => setNewPassword(e.target.value)} value={newPassword} className={classnames("form-control", {
-                                        "is-invalid": error.newPassword
-                                    })} value={newPassword} type="password" id="passwordId" />
-                                    {error.newPassword && (<div className="invalid-feedback">{error.newPassword}</div>)}
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="passwordCId">Confirm New Password</label>
-                                    <input onChange={(e) => setConfirmNewPassword(e.target.value)} value={confirmNewPassword} className={classnames("form-control", {
-                                        "is-invalid": error.confirmNewPassword
-                                    })} value={confirmNewPassword} type="password" id="passwordCId" />
-                                    {error.confirmNewPassword && (<div className="invalid-feedback">{error.confirmNewPassword}</div>)}
-                                </div>
-                                <button type="submit" className="btn btn-warning btn-block ">Update Password</button>
-                            </form>
+                                            })} id="emailId" />
+                                        {error.oldPassword && (<div className="invalid-feedback">{error.oldPassword}</div>)}
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="passwordId">New Password</label>
+                                        <input onChange={(e) => setNewPassword(e.target.value)} value={newPassword} className={classnames("form-control", {
+                                            "is-invalid": error.newPassword
+                                        })} value={newPassword} type="password" id="passwordId" />
+                                        {error.newPassword && (<div className="invalid-feedback">{error.newPassword}</div>)}
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="passwordCId">Confirm New Password</label>
+                                        <input onChange={(e) => setConfirmNewPassword(e.target.value)} value={confirmNewPassword} className={classnames("form-control", {
+                                            "is-invalid": error.confirmNewPassword
+                                        })} value={confirmNewPassword} type="password" id="passwordCId" />
+                                        {error.confirmNewPassword && (<div className="invalid-feedback">{error.confirmNewPassword}</div>)}
+                                    </div>
+                                    <button type="submit" className="btn btn-warning btn-block ">Update Password</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    </AnimationHOC>
                 </div></> : (history.push('/'))}
 
-           
+
 
         </div>
     )

@@ -1,9 +1,10 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import classnames from 'classnames'
-import {fetchStudents,markAttendence } from '../redux/action/facultyAction'
+import { fetchStudents, markAttendence } from '../redux/action/facultyAction'
 import FacultyHomeHelper from '../Components/FacultyHomeHelper'
 import { useHistory } from 'react-router-dom'
+import AnimationHOC from './AnimationHOC'
 
 
 const AttendenceFaculty = () => {
@@ -23,17 +24,16 @@ const AttendenceFaculty = () => {
     const handleInputChange = (e) => {
         const tempCheck = checkedValue
         let index
-        if (e.target.checked)
-        {
+        if (e.target.checked) {
             tempCheck.push(e.target.value)
         }
         else {
             index = tempCheck.indexOf(e.target.value)
-            tempCheck.splice(index,1)
+            tempCheck.splice(index, 1)
         }
         setCheckedValue(tempCheck)
     }
-    
+
     useEffect(() => {
         if (store.error) {
             setError(store.error)
@@ -44,38 +44,38 @@ const AttendenceFaculty = () => {
         e.preventDefault()
         setIsLoading(true)
         dispatch(fetchStudents(department, year, section))
-       
+
     }
 
     useEffect(() => {
         if (store.error || !store.faculty.fetchedStudentsHelper) {
             setIsLoading(false)
         }
-        
+
     }, [store.error, store.faculty.fetchedStudentsHelper])
 
- 
+
 
     const secondFormHandler = (e) => {
         e.preventDefault()
         setIsLoading2(true)
         dispatch(markAttendence(checkedValue, subjectCode, department, year, section))
         setCheckedValue([])
-        
+
     }
 
     useEffect(() => {
         if (store.faculty.fetchedStudentsHelper) {
             setIsLoading2(false)
         }
-        
-    },[store.faculty.fetchedStudentsHelper])
-    
+
+    }, [store.faculty.fetchedStudentsHelper])
+
     return (
         <div>
             {store.faculty.isAuthenticated ? <>
                 <FacultyHomeHelper />
-                {store.faculty.fetchedStudentsHelper && <div className="row justify-content-center mt-4 ">
+                {store.faculty.fetchedStudentsHelper && <AnimationHOC> <div className="row justify-content-center mt-4 ">
                     <div className="col-md-4">
                         <form noValidate onSubmit={formHandler}>
                             <div className="form-group">
@@ -105,7 +105,7 @@ const AttendenceFaculty = () => {
 
                                 {error.year && (<div classNameName="invalid-feedback">{error.year}</div>)}
                             </div>
-                           
+
                             <div className="form-group">
                                 <label htmlFor="sectionId">Section</label>
                                 <select onChange={(e) => setSection(e.target.value)} className={classnames("form-control",
@@ -135,7 +135,8 @@ const AttendenceFaculty = () => {
                             {!isLoading && <button type="submit" className="btn btn-warning  ">Search</button>}
                         </form>
                     </div>
-                </div>}
+                </div>
+                </AnimationHOC>}
 
 
                 {!store.faculty.fetchedStudentsHelper && <div className="row  justify-content-center mt-4">
@@ -190,8 +191,9 @@ const AttendenceFaculty = () => {
                     </div>
                 </div>
                 }</> : (history.push('/'))}
-            
+
         </div>
+
     )
 }
 

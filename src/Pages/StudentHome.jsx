@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import HomeHelper from '../Components/HomeHelper'
+import AnimationHOC from './AnimationHOC'
 
 const Home = () => {
     const store = useSelector((store) => store)
@@ -28,7 +29,8 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-md-7 bg-dark  text-white">
+                                <div className="col-md-7 bg-dark text-white">
+                                    <AnimationHOC>
                                     <table className="table ">
                                         <tbody className="text-white">
                                             <tr>
@@ -89,7 +91,7 @@ const Home = () => {
                                             </tr>
                                         </tbody>
                                     </table>
-
+                                    </AnimationHOC>
                                 </div>
                             </div>
                         </div>
